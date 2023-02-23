@@ -47,7 +47,7 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
             pst.setInt(3, Integer.parseInt(txtCPF.getText()));
             pst1.setString(1, txtUsuario.getText());
             pst1.setInt(3, administrador);
-            pst1.setString(2, String.valueOf(CampoDeSenha.getPassword()));
+            pst1.setString(2, String.valueOf(jpfCampoDeSenha.getPassword()));
 
             pst.execute();
             pst1.execute();
@@ -80,35 +80,38 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
         txtNome.setText("");
         txtCargo.setText("");
         txtCPF.setText("");
-        CampoDeSenha.setText("");
+        jpfCampoDeSenha.setText("");
         txtUsuario.setText("");
 
     }
 
-    /* public void deletar(){
-        
-         String sql = "delete from funcionario where idfuncionario = ?";
-         
-         try{
-              pst = con.prepareStatement(sql);
-            //  pst.setInt(1, id);
-            //pst.setString(1,txtNome.getText()+' ');
-            // pst.setString(2,txtUsuario.getText());
-            //pst1 = con.prepareStatement(sql1);
-            //pst.setInt(1,Integer.parseInt(txt.getText()));
-              //pst1.setInt(1,Integer.parseInt(txtCodigo.getText()));
-              pst.execute();
-              //pst1.execute();
-              listarFuncionarios();
-              
-         }
-         
-         catch(SQLException error){
-            
-            JOptionPane.showMessageDialog(null,error);
+    public void deletar() {
+
+        String sql = "delete from funcionario where idfuncionario = ?";
+
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, Integer.parseInt(txtCodigo.getText()));
+            pst.executeUpdate();
+            listarFuncionarios();
+            // Trecho de código baseado na implementação via ChatGPT, o original esta comentado!
+
+            /*pst = con.prepareStatement(sql);
+            pst.setInt(1, id);
+            pst.setString(1, txtNome.getText() + ' ');
+            pst.setString(2, txtUsuario.getText());
+            pst1 = con.prepareStatement(sql1);
+            pst.setInt(1, Integer.parseInt(txt.getText()));
+            pst1.setInt(1, Integer.parseInt(txtCodigo.getText()));
+            pst.execute();
+            pst1.execute();
+            listarFuncionarios();*/
+        } catch (SQLException error) {
+
+            JOptionPane.showMessageDialog(null, error);
         }
-         
-    }*/
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -122,10 +125,10 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
         txtNome = new java.awt.TextField();
         jLabel3 = new javax.swing.JLabel();
         txtCargo = new java.awt.TextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jbEditar = new javax.swing.JButton();
+        jbDeletar = new javax.swing.JButton();
+        jbCadastrar = new javax.swing.JButton();
+        jbLimpar = new javax.swing.JButton();
         txtPesquisar = new java.awt.TextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -134,11 +137,11 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
         txtUsuario = new java.awt.TextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtNome1 = new java.awt.TextField();
+        txtCodigoFuncionario = new java.awt.TextField();
         jLabel9 = new javax.swing.JLabel();
         CheckSim = new javax.swing.JCheckBox();
         CheckNao = new javax.swing.JCheckBox();
-        CampoDeSenha = new javax.swing.JPasswordField();
+        jpfCampoDeSenha = new javax.swing.JPasswordField();
 
         txtCodigo.setBackground(java.awt.Color.gray);
         txtCodigo.setEnabled(false);
@@ -198,38 +201,38 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(12, 45, 60));
-        jButton1.setText("Editar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbEditar.setBackground(new java.awt.Color(12, 45, 60));
+        jbEditar.setText("Editar");
+        jbEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbEditarActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(12, 45, 60));
-        jButton2.setText("Deletar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jbDeletar.setBackground(new java.awt.Color(12, 45, 60));
+        jbDeletar.setText("Deletar");
+        jbDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jbDeletarActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(12, 45, 60));
-        jButton3.setText("Cadastrar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jbCadastrar.setBackground(new java.awt.Color(12, 45, 60));
+        jbCadastrar.setText("Cadastrar");
+        jbCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jbCadastrarActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(12, 45, 60));
-        jButton4.setText("Limpar");
-        jButton4.setMaximumSize(new java.awt.Dimension(68, 25));
-        jButton4.setMinimumSize(new java.awt.Dimension(68, 25));
-        jButton4.setPreferredSize(new java.awt.Dimension(68, 25));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jbLimpar.setBackground(new java.awt.Color(12, 45, 60));
+        jbLimpar.setText("Limpar");
+        jbLimpar.setMaximumSize(new java.awt.Dimension(68, 25));
+        jbLimpar.setMinimumSize(new java.awt.Dimension(68, 25));
+        jbLimpar.setPreferredSize(new java.awt.Dimension(68, 25));
+        jbLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jbLimparActionPerformed(evt);
             }
         });
 
@@ -268,10 +271,10 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Código Funcionário");
 
-        txtNome1.setBackground(new java.awt.Color(12, 45, 60));
-        txtNome1.addActionListener(new java.awt.event.ActionListener() {
+        txtCodigoFuncionario.setBackground(new java.awt.Color(12, 45, 60));
+        txtCodigoFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNome1ActionPerformed(evt);
+                txtCodigoFuncionarioActionPerformed(evt);
             }
         });
 
@@ -293,7 +296,7 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
             }
         });
 
-        CampoDeSenha.setBackground(new java.awt.Color(12, 45, 60));
+        jpfCampoDeSenha.setBackground(new java.awt.Color(12, 45, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -321,13 +324,13 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
                             .addComponent(txtCPF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(CampoDeSenha)))
+                            .addComponent(jpfCampoDeSenha)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNome1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtCodigoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -336,13 +339,13 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
                                 .addComponent(CheckNao))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(75, 75, 75)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jbCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(31, 31, 31)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jbEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jbDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jbLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -357,7 +360,7 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
-                    .addComponent(txtNome1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCodigoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -380,7 +383,7 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
-                    .addComponent(CampoDeSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jpfCampoDeSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -388,14 +391,14 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
                     .addComponent(CheckNao))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton1)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(jbCadastrar)
+                    .addComponent(jbEditar)
+                    .addComponent(jbLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbDeletar))
                 .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jButton2, jButton3, jButton4});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jbCadastrar, jbDeletar, jbEditar, jbLimpar});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -404,17 +407,17 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCargoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // editarFuncionarios();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jbEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditarActionPerformed
+        //editarFuncionarios();
+    }//GEN-LAST:event_jbEditarActionPerformed
 
     //Botão de deletar
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // deletar();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jbDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDeletarActionPerformed
+        deletar();
+    }//GEN-LAST:event_jbDeletarActionPerformed
 
     //Botão de Cadastrar
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
 
         if (CheckSim.isSelected()) {
 
@@ -426,13 +429,13 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Selecione uma opção", "Caixa de seleção não marcada", JOptionPane.ERROR_MESSAGE);
         }
 
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jbCadastrarActionPerformed
 
     //Botão de Limpar os campos
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jbLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimparActionPerformed
 
         limparCampos();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jbLimparActionPerformed
 
     //Quando o usuário começar a digitar
     private void txtPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisarKeyReleased
@@ -441,7 +444,7 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
 
     private void tblUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblUserMouseClicked
 
-        // mostraItens();
+        //mostraItens();
     }//GEN-LAST:event_tblUserMouseClicked
 
     private void txtCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCPFActionPerformed
@@ -460,9 +463,9 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
-    private void txtNome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNome1ActionPerformed
+    private void txtCodigoFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoFuncionarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNome1ActionPerformed
+    }//GEN-LAST:event_txtCodigoFuncionarioActionPerformed
 
     //SE SIM
     private void CheckSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckSimActionPerformed
@@ -475,13 +478,8 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField CampoDeSenha;
     private javax.swing.JCheckBox CheckNao;
     private javax.swing.JCheckBox CheckSim;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -493,17 +491,22 @@ public class TelaCadastroFuncionario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jbCadastrar;
+    private javax.swing.JButton jbDeletar;
+    private javax.swing.JButton jbEditar;
+    private javax.swing.JButton jbLimpar;
+    private javax.swing.JPasswordField jpfCampoDeSenha;
     private javax.swing.JTable tblUser;
     private java.awt.TextField txtCPF;
     private java.awt.TextField txtCargo;
     private java.awt.TextField txtCodigo;
+    private java.awt.TextField txtCodigoFuncionario;
     private java.awt.TextField txtNome;
-    private java.awt.TextField txtNome1;
     private java.awt.TextField txtPesquisar;
     private java.awt.TextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 
     private void JOptionPane(Object object, SQLException error) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

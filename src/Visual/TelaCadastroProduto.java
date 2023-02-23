@@ -138,10 +138,10 @@ public class TelaCadastroProduto extends javax.swing.JInternalFrame {
         txtMarca = new java.awt.TextField();
         jLabel4 = new javax.swing.JLabel();
         txtPreco = new java.awt.TextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jbEditar = new javax.swing.JButton();
+        jbDeletar = new javax.swing.JButton();
+        jbCadastrar = new javax.swing.JButton();
+        jbLimpar = new javax.swing.JButton();
         txtPesquisar = new java.awt.TextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -212,35 +212,35 @@ public class TelaCadastroProduto extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(12, 45, 60));
-        jButton1.setText("Editar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbEditar.setBackground(new java.awt.Color(12, 45, 60));
+        jbEditar.setText("Editar");
+        jbEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbEditarActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(12, 45, 60));
-        jButton2.setText("Deletar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jbDeletar.setBackground(new java.awt.Color(12, 45, 60));
+        jbDeletar.setText("Deletar");
+        jbDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jbDeletarActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(12, 45, 60));
-        jButton3.setText("Cadastrar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jbCadastrar.setBackground(new java.awt.Color(12, 45, 60));
+        jbCadastrar.setText("Cadastrar");
+        jbCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jbCadastrarActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(12, 45, 60));
-        jButton4.setText("Limpar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jbLimpar.setBackground(new java.awt.Color(12, 45, 60));
+        jbLimpar.setText("Limpar");
+        jbLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jbLimparActionPerformed(evt);
             }
         });
 
@@ -302,17 +302,17 @@ public class TelaCadastroProduto extends javax.swing.JInternalFrame {
                             .addComponent(txtCodigoBarras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(4, 4, 4)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jbLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton2, jButton4});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jbDeletar, jbLimpar});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -341,14 +341,14 @@ public class TelaCadastroProduto extends javax.swing.JInternalFrame {
                     .addComponent(txtCodigoBarras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton4))
+                    .addComponent(jbCadastrar)
+                    .addComponent(jbEditar)
+                    .addComponent(jbDeletar)
+                    .addComponent(jbLimpar))
                 .addGap(40, 40, 40))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jButton2, jButton3, jButton4});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jbCadastrar, jbDeletar, jbEditar, jbLimpar});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -369,26 +369,26 @@ public class TelaCadastroProduto extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPrecoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditarActionPerformed
         editarUsuarios();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbEditarActionPerformed
 
     //Botão de deletar
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jbDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbDeletarActionPerformed
         deletar();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jbDeletarActionPerformed
 
     //Botão de Cadastrar
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jbCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarActionPerformed
 
         cadastrarProdutos();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jbCadastrarActionPerformed
 
     //Botão de Limpar os campos
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jbLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimparActionPerformed
 
         limparCampos();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jbLimparActionPerformed
 
     //Quando o usuário começar a digitar
     private void txtPesquisarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPesquisarKeyReleased
@@ -410,10 +410,6 @@ public class TelaCadastroProduto extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -421,6 +417,10 @@ public class TelaCadastroProduto extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jbCadastrar;
+    private javax.swing.JButton jbDeletar;
+    private javax.swing.JButton jbEditar;
+    private javax.swing.JButton jbLimpar;
     private javax.swing.JTable tblUser;
     private java.awt.TextField txtCodigo;
     private java.awt.TextField txtCodigoBarras;
@@ -431,6 +431,6 @@ public class TelaCadastroProduto extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private void JOptionPane(Object object, SQLException error) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

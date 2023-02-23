@@ -41,10 +41,12 @@ public class NN_Mercado_TelaPagamentoDinheiro extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(12, 45, 60));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Pagamento em Dinheiro");
 
         txtValorPago.setBackground(new java.awt.Color(12, 45, 60));
+        txtValorPago.setForeground(new java.awt.Color(255, 255, 255));
         txtValorPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtValorPagoActionPerformed(evt);
@@ -52,15 +54,19 @@ public class NN_Mercado_TelaPagamentoDinheiro extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Informe o valor dado pelo Cliente");
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Troco");
 
         txtTroco.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
+        txtTroco.setForeground(new java.awt.Color(255, 255, 255));
         txtTroco.setText("0.00");
 
         jButton1.setBackground(new java.awt.Color(12, 45, 60));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Salvar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

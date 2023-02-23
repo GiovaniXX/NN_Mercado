@@ -148,6 +148,7 @@ public final class NN_Mercado_TelaInicial extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("NN_Tela Inicial");
         setBackground(new java.awt.Color(12, 45, 60));
         setExtendedState(6);
         setUndecorated(true);

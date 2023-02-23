@@ -44,8 +44,10 @@ public class NN_Mercado_VerificacaoSaida extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(12, 45, 60));
 
         txtSenha.setBackground(new java.awt.Color(12, 45, 60));
+        txtSenha.setForeground(new java.awt.Color(255, 255, 255));
 
         ButtonConfirmar.setBackground(new java.awt.Color(12, 45, 60));
+        ButtonConfirmar.setForeground(new java.awt.Color(255, 255, 255));
         ButtonConfirmar.setText("Confirmar");
         ButtonConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,6 +56,7 @@ public class NN_Mercado_VerificacaoSaida extends javax.swing.JFrame {
         });
 
         ButtonCancelar.setBackground(new java.awt.Color(12, 45, 60));
+        ButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
         ButtonCancelar.setText("Cancelar");
         ButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +65,7 @@ public class NN_Mercado_VerificacaoSaida extends javax.swing.JFrame {
         });
 
         LabelCredenciais.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        LabelCredenciais.setForeground(new java.awt.Color(255, 255, 255));
         LabelCredenciais.setText("Entre com a Chave Mestre");
 
         jPanel2.setBackground(new java.awt.Color(27, 25, 32));

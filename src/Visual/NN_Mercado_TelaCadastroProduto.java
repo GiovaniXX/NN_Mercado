@@ -24,8 +24,8 @@ public class NN_Mercado_TelaCadastroProduto extends javax.swing.JFrame {
     public void cadastrarProdutos() throws ParseException {
         String sql = "insert into produto(nome,cod_barras,preco,marca) values(?,?,?,?)";
         try {
-            if (txtNomeProduto.getText().isEmpty() || txtCodigoBarras.getText().isEmpty() || txtMarcaProduto.getText().isEmpty() || txtPrecoProduto.getText().isEmpty() || txtPrecoProduto.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Preencha todos os campos", null, JOptionPane.WARNING_MESSAGE);
+            if (txtNomeProduto.getText().isEmpty() || txtCodigoBarras.getText().isEmpty() || txtPrecoProduto.getText().isEmpty() || txtMarcaProduto.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos", "AVISO", JOptionPane.WARNING_MESSAGE);
             } else {
                 pst = con.prepareStatement(sql);
 
@@ -34,7 +34,7 @@ public class NN_Mercado_TelaCadastroProduto extends javax.swing.JFrame {
                 pst.setFloat(3, Float.parseFloat(txtPrecoProduto.getText()));
                 pst.setString(4, txtMarcaProduto.getText());
                 pst.execute();
-                JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!", "Cadastrado com sucesso", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!", "AVISO DO BANCO DE DADOS...", JOptionPane.INFORMATION_MESSAGE);
             }
 
         } catch (SQLException error) {
@@ -76,6 +76,7 @@ public class NN_Mercado_TelaCadastroProduto extends javax.swing.JFrame {
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         ButtonCadastrasr.setBackground(new java.awt.Color(12, 45, 60));
+        ButtonCadastrasr.setForeground(new java.awt.Color(255, 255, 255));
         ButtonCadastrasr.setText("Cadastrar");
         ButtonCadastrasr.setMaximumSize(new java.awt.Dimension(105, 23));
         ButtonCadastrasr.setMinimumSize(new java.awt.Dimension(105, 23));
@@ -87,6 +88,7 @@ public class NN_Mercado_TelaCadastroProduto extends javax.swing.JFrame {
         });
 
         ButtonLimpar.setBackground(new java.awt.Color(12, 45, 60));
+        ButtonLimpar.setForeground(new java.awt.Color(255, 255, 255));
         ButtonLimpar.setText("Limpar Campos");
         ButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +97,7 @@ public class NN_Mercado_TelaCadastroProduto extends javax.swing.JFrame {
         });
 
         ButtonCancelar.setBackground(new java.awt.Color(12, 45, 60));
+        ButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
         ButtonCancelar.setText("Cancelar");
         ButtonCancelar.setMaximumSize(new java.awt.Dimension(105, 23));
         ButtonCancelar.setMinimumSize(new java.awt.Dimension(105, 23));
@@ -106,10 +109,13 @@ public class NN_Mercado_TelaCadastroProduto extends javax.swing.JFrame {
         });
 
         txtMarcaProduto.setBackground(new java.awt.Color(12, 45, 60));
+        txtMarcaProduto.setForeground(new java.awt.Color(255, 255, 255));
 
         txtNomeProduto.setBackground(new java.awt.Color(12, 45, 60));
+        txtNomeProduto.setForeground(new java.awt.Color(255, 255, 255));
 
         txtCodigoBarras.setBackground(new java.awt.Color(12, 45, 60));
+        txtCodigoBarras.setForeground(new java.awt.Color(255, 255, 255));
         txtCodigoBarras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCodigoBarrasActionPerformed(evt);
@@ -117,23 +123,29 @@ public class NN_Mercado_TelaCadastroProduto extends javax.swing.JFrame {
         });
 
         txtPrecoProduto.setBackground(new java.awt.Color(12, 45, 60));
+        txtPrecoProduto.setForeground(new java.awt.Color(255, 255, 255));
 
         LabelNomeP.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        LabelNomeP.setForeground(new java.awt.Color(255, 255, 255));
         LabelNomeP.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         LabelNomeP.setText("Nome");
 
         LabelCodigoDeBarras.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        LabelCodigoDeBarras.setForeground(new java.awt.Color(255, 255, 255));
         LabelCodigoDeBarras.setText("Código de Barras");
 
         LabelMarca.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        LabelMarca.setForeground(new java.awt.Color(255, 255, 255));
         LabelMarca.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         LabelMarca.setText("Marca");
 
         LabelPreco.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        LabelPreco.setForeground(new java.awt.Color(255, 255, 255));
         LabelPreco.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         LabelPreco.setText("Preço");
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cadastro de Produtos");
 

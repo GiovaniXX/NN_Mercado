@@ -62,6 +62,7 @@ public final class NN_Mercado_TelaPesquisa extends javax.swing.JFrame {
 
         txtPesquisar.setBackground(new java.awt.Color(12, 45, 60));
         txtPesquisar.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
+        txtPesquisar.setForeground(new java.awt.Color(255, 255, 255));
         txtPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPesquisarActionPerformed(evt);
@@ -79,6 +80,7 @@ public final class NN_Mercado_TelaPesquisa extends javax.swing.JFrame {
         tabelaProdutos.setBackground(new java.awt.Color(12, 45, 60));
         tabelaProdutos.setBorder(new javax.swing.border.MatteBorder(null));
         tabelaProdutos.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tabelaProdutos.setForeground(new java.awt.Color(255, 255, 255));
         tabelaProdutos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},

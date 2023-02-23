@@ -98,23 +98,29 @@ public class NN_Mercado_TelaPagamentoCartao extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(12, 45, 60));
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Pagamento no Cartão");
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Informe o valor a ser pago");
 
         txtMensagem.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        txtMensagem.setForeground(new java.awt.Color(255, 255, 255));
         txtMensagem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtMensagem.setText("Mensagens");
 
         txtTexto.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        txtTexto.setForeground(new java.awt.Color(255, 255, 255));
         txtTexto.setText("Valor");
 
         txtValor.setFont(new java.awt.Font("Arial Black", 0, 36)); // NOI18N
+        txtValor.setForeground(new java.awt.Color(255, 255, 255));
         txtValor.setText("0,00");
 
         jButton1.setBackground(new java.awt.Color(12, 45, 60));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Salvar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

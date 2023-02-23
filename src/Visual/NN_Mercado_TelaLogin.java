@@ -29,7 +29,7 @@ public class NN_Mercado_TelaLogin extends javax.swing.JFrame {
         NN_Mercado_TelaGerente enviaText = null;
 
         String sql = "select *from usuario where usuario = ? and senha = ?"; //Buscar dado banco
-        String sqlCargo = "select cargo, nome from usuario as u join funcionario as f on u.id_usuario = f.id_funcionario where usuario = ? and senha = ?";
+        String sqlCargo = "select cargo, nome from usuario as u join funcionario as f on iduser = f.idfuncionario where usuario = ? and senha = ?";
 
         try {
             pst = con.prepareStatement(sql); //Inicializa a conexão
@@ -160,19 +160,18 @@ public class NN_Mercado_TelaLogin extends javax.swing.JFrame {
                     .addComponent(LabelSenha)
                     .addComponent(LabelUsuario))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(ButtonCancelar)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                         .addComponent(ButtonEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jpfSenha)
-                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                    .addComponent(txtUsuario)
+                    .addComponent(jpfSenha))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(134, Short.MAX_VALUE)
                 .addComponent(jLabel2)
-                .addGap(61, 61, 61))
+                .addGap(110, 110, 110))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,7 +190,7 @@ public class NN_Mercado_TelaLogin extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonCancelar)
                     .addComponent(ButtonEntrar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         pack();

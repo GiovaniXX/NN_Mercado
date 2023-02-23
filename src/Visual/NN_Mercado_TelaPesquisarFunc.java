@@ -113,6 +113,7 @@ public final class NN_Mercado_TelaPesquisarFunc extends javax.swing.JFrame {
 
         tabelaFuncionarios.setBackground(new java.awt.Color(12, 45, 60));
         tabelaFuncionarios.setBorder(new javax.swing.border.MatteBorder(null));
+        tabelaFuncionarios.setForeground(new java.awt.Color(255, 255, 255));
         tabelaFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -183,6 +184,7 @@ public final class NN_Mercado_TelaPesquisarFunc extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tabelaFuncionarios);
 
         txtPesquisar.setBackground(new java.awt.Color(12, 45, 60));
+        txtPesquisar.setForeground(new java.awt.Color(255, 255, 255));
         txtPesquisar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtPesquisarKeyReleased(evt);
@@ -190,6 +192,7 @@ public final class NN_Mercado_TelaPesquisarFunc extends javax.swing.JFrame {
         });
 
         ButtonEditar.setBackground(new java.awt.Color(12, 45, 60));
+        ButtonEditar.setForeground(new java.awt.Color(255, 255, 255));
         ButtonEditar.setText("Editar");
         ButtonEditar.setMaximumSize(new java.awt.Dimension(105, 23));
         ButtonEditar.setMinimumSize(new java.awt.Dimension(105, 23));
@@ -201,6 +204,7 @@ public final class NN_Mercado_TelaPesquisarFunc extends javax.swing.JFrame {
         });
 
         ButtonExcluir.setBackground(new java.awt.Color(12, 45, 60));
+        ButtonExcluir.setForeground(new java.awt.Color(255, 255, 255));
         ButtonExcluir.setText("Excluir");
         ButtonExcluir.setMaximumSize(new java.awt.Dimension(105, 23));
         ButtonExcluir.setMinimumSize(new java.awt.Dimension(105, 23));
@@ -212,6 +216,7 @@ public final class NN_Mercado_TelaPesquisarFunc extends javax.swing.JFrame {
         });
 
         ButtonCancelar.setBackground(new java.awt.Color(12, 45, 60));
+        ButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
         ButtonCancelar.setText("Cancelar");
         ButtonCancelar.setMaximumSize(new java.awt.Dimension(105, 23));
         ButtonCancelar.setMinimumSize(new java.awt.Dimension(105, 23));

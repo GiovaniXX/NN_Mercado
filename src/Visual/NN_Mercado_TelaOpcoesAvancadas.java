@@ -76,14 +76,18 @@ public class NN_Mercado_TelaOpcoesAvancadas extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(12, 45, 60));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Opções Avançadas - Alterando dados de Login");
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Usuário");
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Senha");
 
         jButton1.setBackground(new java.awt.Color(12, 45, 60));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Confirmar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +96,7 @@ public class NN_Mercado_TelaOpcoesAvancadas extends javax.swing.JFrame {
         });
 
         jButton2.setBackground(new java.awt.Color(12, 45, 60));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Limpar Campos");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +105,7 @@ public class NN_Mercado_TelaOpcoesAvancadas extends javax.swing.JFrame {
         });
 
         jButton3.setBackground(new java.awt.Color(12, 45, 60));
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Cancelar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,8 +114,10 @@ public class NN_Mercado_TelaOpcoesAvancadas extends javax.swing.JFrame {
         });
 
         txtUsuario.setBackground(new java.awt.Color(12, 45, 60));
+        txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
 
         txtSenha.setBackground(new java.awt.Color(12, 45, 60));
+        txtSenha.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

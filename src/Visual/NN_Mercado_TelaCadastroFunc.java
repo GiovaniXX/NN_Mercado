@@ -26,7 +26,6 @@ public class NN_Mercado_TelaCadastroFunc extends javax.swing.JFrame {
         String sqlUsuario = "insert into usuario(usuario,senha) values(?,?)";
 
         try {
-
             if (txtNome.getText().isEmpty() || txtCargo.getText().isEmpty() || txtCPF.getText().isEmpty() || txtUsuario.getText().isEmpty() || txtSenha.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos", null, JOptionPane.WARNING_MESSAGE);
             } else {
@@ -47,7 +46,6 @@ public class NN_Mercado_TelaCadastroFunc extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(null, error);
         }
-
     }
 
     public void limparCampos() {
@@ -85,6 +83,7 @@ public class NN_Mercado_TelaCadastroFunc extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(12, 45, 60));
 
         ButtonCadastrar.setBackground(new java.awt.Color(12, 45, 60));
+        ButtonCadastrar.setForeground(new java.awt.Color(255, 255, 255));
         ButtonCadastrar.setText("Cadastrar");
         ButtonCadastrar.setMaximumSize(new java.awt.Dimension(105, 23));
         ButtonCadastrar.setMinimumSize(new java.awt.Dimension(105, 23));
@@ -96,6 +95,7 @@ public class NN_Mercado_TelaCadastroFunc extends javax.swing.JFrame {
         });
 
         ButtonLimpar.setBackground(new java.awt.Color(12, 45, 60));
+        ButtonLimpar.setForeground(new java.awt.Color(255, 255, 255));
         ButtonLimpar.setText("Limpar Campos");
         ButtonLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +104,7 @@ public class NN_Mercado_TelaCadastroFunc extends javax.swing.JFrame {
         });
 
         ButtonCancelar.setBackground(new java.awt.Color(12, 45, 60));
+        ButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
         ButtonCancelar.setText("Cancelar");
         ButtonCancelar.setMaximumSize(new java.awt.Dimension(105, 23));
         ButtonCancelar.setMinimumSize(new java.awt.Dimension(105, 23));
@@ -116,39 +117,51 @@ public class NN_Mercado_TelaCadastroFunc extends javax.swing.JFrame {
         });
 
         txtNome.setBackground(new java.awt.Color(12, 45, 60));
+        txtNome.setForeground(new java.awt.Color(255, 255, 255));
 
         txtCargo.setBackground(new java.awt.Color(12, 45, 60));
+        txtCargo.setForeground(new java.awt.Color(255, 255, 255));
 
         txtCPF.setBackground(new java.awt.Color(12, 45, 60));
+        txtCPF.setForeground(new java.awt.Color(255, 255, 255));
 
         txtUsuario.setBackground(new java.awt.Color(12, 45, 60));
+        txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
 
         txtSenha.setBackground(new java.awt.Color(12, 45, 60));
+        txtSenha.setForeground(new java.awt.Color(255, 255, 255));
 
         Nome.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        Nome.setForeground(new java.awt.Color(255, 255, 255));
         Nome.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         Nome.setText("Nome");
 
         Cargo.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        Cargo.setForeground(new java.awt.Color(255, 255, 255));
         Cargo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         Cargo.setText("Cargo");
 
         CPF.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        CPF.setForeground(new java.awt.Color(255, 255, 255));
         CPF.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         CPF.setText("CPF");
 
         Usuario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        Usuario.setForeground(new java.awt.Color(255, 255, 255));
         Usuario.setText("Usuário");
 
         Senha.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        Senha.setForeground(new java.awt.Color(255, 255, 255));
         Senha.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         Senha.setText("Senha");
 
         CadFunc.setFont(new java.awt.Font("Arial Black", 0, 30)); // NOI18N
+        CadFunc.setForeground(new java.awt.Color(255, 255, 255));
         CadFunc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         CadFunc.setText("Cadastrar Funcionário");
 
         checkSenha.setBackground(new java.awt.Color(12, 45, 60));
+        checkSenha.setForeground(new java.awt.Color(255, 255, 255));
         checkSenha.setText("Visualizar Senha");
         checkSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

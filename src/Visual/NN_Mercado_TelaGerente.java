@@ -69,6 +69,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         MenuArquivo = new javax.swing.JMenu();
         SubMenuVenda = new javax.swing.JMenuItem();
+        SubMenuSair = new javax.swing.JMenuItem();
         MenuCadastrar = new javax.swing.JMenu();
         SubMenuProd = new javax.swing.JMenuItem();
         SubMenuFunc = new javax.swing.JMenuItem();
@@ -217,9 +218,11 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Olá");
 
         txtNomeGerente.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        txtNomeGerente.setForeground(new java.awt.Color(255, 255, 255));
         txtNomeGerente.setText("Nome do Admin");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -243,6 +246,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Copyright © 2022 GvC - Todos os direitos reservados");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -293,6 +297,14 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
             }
         });
         MenuArquivo.add(SubMenuVenda);
+
+        SubMenuSair.setText("Sair");
+        SubMenuSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubMenuSairActionPerformed(evt);
+            }
+        });
+        MenuArquivo.add(SubMenuSair);
 
         jMenuBar2.add(MenuArquivo);
 
@@ -483,6 +495,10 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ButtonEmitirRelActionPerformed
 
+    private void SubMenuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuSairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_SubMenuSairActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -537,6 +553,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
     private javax.swing.JMenuItem SubMenuExibirFunc;
     private javax.swing.JMenuItem SubMenuFunc;
     private javax.swing.JMenuItem SubMenuProd;
+    private javax.swing.JMenuItem SubMenuSair;
     private javax.swing.JMenuItem SubMenuVenda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;

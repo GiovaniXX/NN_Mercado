@@ -113,6 +113,7 @@ public final class NN_Mercado_TelaPesquisarProd extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(12, 45, 60));
 
         txtPesquisar.setBackground(new java.awt.Color(12, 45, 60));
+        txtPesquisar.setForeground(new java.awt.Color(255, 255, 255));
         txtPesquisar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txtPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,6 +141,7 @@ public final class NN_Mercado_TelaPesquisarProd extends javax.swing.JFrame {
         jScrollPane2.setViewportView(tabelaProdutos);
 
         ButtonEditar.setBackground(new java.awt.Color(12, 45, 60));
+        ButtonEditar.setForeground(new java.awt.Color(255, 255, 255));
         ButtonEditar.setText("Editar");
         ButtonEditar.setMaximumSize(new java.awt.Dimension(105, 23));
         ButtonEditar.setMinimumSize(new java.awt.Dimension(105, 23));
@@ -151,6 +153,7 @@ public final class NN_Mercado_TelaPesquisarProd extends javax.swing.JFrame {
         });
 
         ButtonExcluir.setBackground(new java.awt.Color(12, 45, 60));
+        ButtonExcluir.setForeground(new java.awt.Color(255, 255, 255));
         ButtonExcluir.setText("  Excluir");
         ButtonExcluir.setMaximumSize(new java.awt.Dimension(105, 23));
         ButtonExcluir.setMinimumSize(new java.awt.Dimension(105, 23));
@@ -162,6 +165,7 @@ public final class NN_Mercado_TelaPesquisarProd extends javax.swing.JFrame {
         });
 
         ButtonCancelar.setBackground(new java.awt.Color(12, 45, 60));
+        ButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
         ButtonCancelar.setText("Cancelar");
         ButtonCancelar.setMaximumSize(new java.awt.Dimension(105, 23));
         ButtonCancelar.setMinimumSize(new java.awt.Dimension(105, 23));
@@ -276,9 +280,8 @@ public final class NN_Mercado_TelaPesquisarProd extends javax.swing.JFrame {
     /*public void preencherTabela(String SQL){
         ArrayList dados = new ArrayList();
         String [] colunas = new String[]{"Código", "Nome", "Marca", "Preço"};
-        con = ConectaBanco.conectabanco();
-        
-    }   */
+        con = ConectaBanco.conectabanco();      
+    }*/
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
