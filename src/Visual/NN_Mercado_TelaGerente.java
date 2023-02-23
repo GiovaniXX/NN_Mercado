@@ -388,7 +388,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
 
     private void ButtonCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCadFuncActionPerformed
         try {
-            new NN_Mercado_TelaCadastroFunc().setVisible(true);
+            new NN_Mercado_TelaCadastroFuncionario().setVisible(true);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -434,7 +434,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
 
     private void SubMenuFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuFuncActionPerformed
         try {
-            new NN_Mercado_TelaCadastroFunc().setVisible(true);
+            new NN_Mercado_TelaCadastroFuncionario().setVisible(true);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(Level.SEVERE, null, ex);
         }

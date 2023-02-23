@@ -299,10 +299,10 @@ public final class NN_Mercado_TelaPesquisarFunc extends javax.swing.JFrame {
         String cargo = tabelaFuncionarios.getModel().getValueAt(seleciona, 2).toString();
         String codigo = tabelaFuncionarios.getModel().getValueAt(seleciona, 0).toString();
 
-        NN_Mercado_TelaEdicaoFunc enviaTexto;
+        NN_Mercado_TelaEdicaoFuncionario enviaTexto;
         enviaTexto = null;
         try {
-            enviaTexto = new NN_Mercado_TelaEdicaoFunc();
+            enviaTexto = new NN_Mercado_TelaEdicaoFuncionario();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(NN_Mercado_TelaPesquisarFunc.class.getName()).log(Level.SEVERE, null, ex);
         }

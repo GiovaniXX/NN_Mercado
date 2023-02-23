@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-public class NN_Mercado_TelaEdicaoFunc extends javax.swing.JFrame {
+public class NN_Mercado_TelaEdicaoFuncionario extends javax.swing.JFrame {
 
     Connection con;
     PreparedStatement pst;
@@ -17,7 +17,7 @@ public class NN_Mercado_TelaEdicaoFunc extends javax.swing.JFrame {
     ResultSet rs;
     String id;
 
-    public NN_Mercado_TelaEdicaoFunc() throws ClassNotFoundException {
+    public NN_Mercado_TelaEdicaoFuncionario() throws ClassNotFoundException {
         initComponents();
         con = ConectaBanco.conectabanco();
     }
@@ -252,9 +252,9 @@ public class NN_Mercado_TelaEdicaoFunc extends javax.swing.JFrame {
             enviaTexto.recebeDados(id, usuario, senha);
 
         } catch (SQLException ex) {
-            Logger.getLogger(NN_Mercado_TelaEdicaoFunc.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NN_Mercado_TelaEdicaoFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(NN_Mercado_TelaEdicaoFunc.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NN_Mercado_TelaEdicaoFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -267,7 +267,7 @@ public class NN_Mercado_TelaEdicaoFunc extends javax.swing.JFrame {
         try {
             editarFuncionarios();
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(NN_Mercado_TelaEdicaoFunc.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NN_Mercado_TelaEdicaoFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -288,14 +288,16 @@ public class NN_Mercado_TelaEdicaoFunc extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NN_Mercado_TelaEdicaoFunc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NN_Mercado_TelaEdicaoFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NN_Mercado_TelaEdicaoFunc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NN_Mercado_TelaEdicaoFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NN_Mercado_TelaEdicaoFunc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NN_Mercado_TelaEdicaoFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NN_Mercado_TelaEdicaoFunc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NN_Mercado_TelaEdicaoFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -303,9 +305,9 @@ public class NN_Mercado_TelaEdicaoFunc extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new NN_Mercado_TelaEdicaoFunc().setVisible(true);
+                    new NN_Mercado_TelaEdicaoFuncionario().setVisible(true);
                 } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(NN_Mercado_TelaEdicaoFunc.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(NN_Mercado_TelaEdicaoFuncionario.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });

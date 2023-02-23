@@ -11,7 +11,7 @@ public class Main {
     }
 
     public static void imprimeMenu() {
-        System.out.println("-- Menu do Usuário -- ");
+        System.out.println("-- Menu do Usuario -- ");
         System.out.println("1. Abrir Vendas.");
         System.out.println("2. Ver seus dados cadastrais.");
         System.out.println("0. Sair do sistema.");
@@ -104,7 +104,7 @@ public class Main {
         do {
             cls();
             System.out.println("Bem vindo ao NN_Mercado");
-            System.out.println("Usuário: ");
+            System.out.println("Usuario: ");
             usuario = ler.nextLine();
             F1.setNomeUser(usuario);
 

@@ -9,14 +9,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-public class NN_Mercado_TelaCadastroFunc extends javax.swing.JFrame {
+public class NN_Mercado_TelaCadastroFuncionario extends javax.swing.JFrame {
 
     Connection con;
     PreparedStatement pstFuncionario;
     PreparedStatement pstUsuario;
     ResultSet rs;
 
-    public NN_Mercado_TelaCadastroFunc() throws ClassNotFoundException {
+    public NN_Mercado_TelaCadastroFuncionario() throws ClassNotFoundException {
         initComponents();
         con = ConectaBanco.conectabanco();
     }
@@ -296,14 +296,16 @@ public class NN_Mercado_TelaCadastroFunc extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NN_Mercado_TelaCadastroFunc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NN_Mercado_TelaCadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NN_Mercado_TelaCadastroFunc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NN_Mercado_TelaCadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NN_Mercado_TelaCadastroFunc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NN_Mercado_TelaCadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NN_Mercado_TelaCadastroFunc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NN_Mercado_TelaCadastroFuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -311,9 +313,9 @@ public class NN_Mercado_TelaCadastroFunc extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new NN_Mercado_TelaCadastroFunc().setVisible(true);
+                    new NN_Mercado_TelaCadastroFuncionario().setVisible(true);
                 } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(NN_Mercado_TelaCadastroFunc.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(NN_Mercado_TelaCadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
