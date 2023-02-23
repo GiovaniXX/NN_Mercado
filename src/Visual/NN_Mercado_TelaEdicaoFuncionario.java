@@ -39,7 +39,7 @@ public class NN_Mercado_TelaEdicaoFuncionario extends javax.swing.JFrame {
             if (txtNome.getText().isEmpty() || txtCargo.getText().isEmpty() || txtCPF.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos", null, JOptionPane.WARNING_MESSAGE);
             } else {
-                NN_Mercado_TelaPesquisarFunc lista = null;
+                NN_Mercado_TelaPesquisarFuncionario lista = null;
                 pst = con.prepareStatement(sql);
                 pstNome = con.prepareStatement(sql1);
 
@@ -49,7 +49,7 @@ public class NN_Mercado_TelaEdicaoFuncionario extends javax.swing.JFrame {
                 pst.setInt(4, Integer.parseInt(id));
                 pstNome.setInt(1, Integer.parseInt(id));
 
-                lista = new NN_Mercado_TelaPesquisarFunc();
+                lista = new NN_Mercado_TelaPesquisarFuncionario();
 
                 pst.executeUpdate();
                 rs = pstNome.executeQuery();

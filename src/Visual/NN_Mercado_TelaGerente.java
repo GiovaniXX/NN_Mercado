@@ -410,7 +410,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
 
     private void ButtonPesquisarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPesquisarProdActionPerformed
         try {
-            new NN_Mercado_TelaPesquisarProd().setVisible(true);
+            new NN_Mercado_TelaPesquisarProduto().setVisible(true);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -418,7 +418,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
 
     private void ButtonPesquisarFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPesquisarFuncActionPerformed
         try {
-            new NN_Mercado_TelaPesquisarFunc().setVisible(true);
+            new NN_Mercado_TelaPesquisarFuncionario().setVisible(true);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -450,7 +450,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
 
     private void SubMenuExibiProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuExibiProdActionPerformed
         try {
-            new NN_Mercado_TelaPesquisarProd().setVisible(true);
+            new NN_Mercado_TelaPesquisarProduto().setVisible(true);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -458,7 +458,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
 
     private void SubMenuExibirFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuExibirFuncActionPerformed
         try {
-            new NN_Mercado_TelaPesquisarFunc().setVisible(true);
+            new NN_Mercado_TelaPesquisarFuncionario().setVisible(true);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(Level.SEVERE, null, ex);
         }

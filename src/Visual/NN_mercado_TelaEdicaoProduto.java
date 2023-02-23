@@ -9,14 +9,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-public class NN_mercado_TelaEdicaoProd extends javax.swing.JFrame {
+public class NN_mercado_TelaEdicaoProduto extends javax.swing.JFrame {
 
     Connection con;
     PreparedStatement pst;
     ResultSet rs;
     String id;
 
-    public NN_mercado_TelaEdicaoProd() throws ClassNotFoundException {
+    public NN_mercado_TelaEdicaoProduto() throws ClassNotFoundException {
         initComponents();
         con = ConectaBanco.conectabanco();
 
@@ -37,7 +37,7 @@ public class NN_mercado_TelaEdicaoProd extends javax.swing.JFrame {
             if (txtNome.getText().isEmpty() || txtCodigoBarras.getText().isEmpty() || txtMarca.getText().isEmpty() || txtPreco.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos", null, JOptionPane.WARNING_MESSAGE);
             } else {
-                NN_Mercado_TelaPesquisarProd lista = null;
+                NN_Mercado_TelaPesquisarProduto lista = null;
                 pst = con.prepareStatement(sql);
                 pst.setString(1, txtNome.getText());
                 pst.setString(2, txtCodigoBarras.getText());
@@ -45,7 +45,7 @@ public class NN_mercado_TelaEdicaoProd extends javax.swing.JFrame {
                 pst.setString(4, txtMarca.getText());
                 pst.setInt(5, Integer.parseInt(id));
 
-                lista = new NN_Mercado_TelaPesquisarProd();
+                lista = new NN_Mercado_TelaPesquisarProduto();
 
                 pst.executeUpdate();
                 lista.setVisible(true);
@@ -238,7 +238,7 @@ public class NN_mercado_TelaEdicaoProd extends javax.swing.JFrame {
         try {
             editarProdutos();
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(NN_mercado_TelaEdicaoProd.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NN_mercado_TelaEdicaoProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -264,14 +264,16 @@ public class NN_mercado_TelaEdicaoProd extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NN_mercado_TelaEdicaoProd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NN_mercado_TelaEdicaoProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NN_mercado_TelaEdicaoProd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NN_mercado_TelaEdicaoProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NN_mercado_TelaEdicaoProd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NN_mercado_TelaEdicaoProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NN_mercado_TelaEdicaoProd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NN_mercado_TelaEdicaoProduto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -279,9 +281,9 @@ public class NN_mercado_TelaEdicaoProd extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new NN_mercado_TelaEdicaoProd().setVisible(true);
+                    new NN_mercado_TelaEdicaoProduto().setVisible(true);
                 } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(NN_mercado_TelaEdicaoProd.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(NN_mercado_TelaEdicaoProduto.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
