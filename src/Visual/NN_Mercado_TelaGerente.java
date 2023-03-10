@@ -247,7 +247,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
         );
 
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Copyright © 2022 GvC - Todos os direitos reservados");
+        jLabel3.setText("Copyright © 2023 GvC - Todos os direitos reservados");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

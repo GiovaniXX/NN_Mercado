@@ -85,6 +85,52 @@ public class NN_Mercado_TelaLogin extends javax.swing.JFrame {
         }
     }
 
+    /*public void logar() {
+        final String SQL_SELECT_USUARIO = "SELECT * FROM usuario WHERE usuario = ? AND senha = ?";
+        final String SQL_SELECT_CARGO_NOME = "SELECT cargo, nome FROM usuario AS u JOIN funcionario AS f ON iduser = f.idfuncionario WHERE usuario = ? AND senha = ?";
+        final String CARGO_CAIXA = "Caixa";
+        final String CARGO_GERENTE = "Gerente";
+
+        try (PreparedStatement stmtSelectUsuario = con.prepareStatement(SQL_SELECT_USUARIO); PreparedStatement stmtSelectCargoNome = con.prepareStatement(SQL_SELECT_CARGO_NOME)) {
+
+            stmtSelectCargoNome.setString(1, txtUsuario.getText());
+            stmtSelectCargoNome.setString(2, jpfSenha.getText());
+            stmtSelectUsuario.setString(1, txtUsuario.getText());
+            stmtSelectUsuario.setString(2, jpfSenha.getText());
+
+            try (ResultSet rsUsuario = stmtSelectUsuario.executeQuery(); ResultSet rsCargoNome = stmtSelectCargoNome.executeQuery()) {
+
+                if (rsUsuario.next()) {
+                    if (rsCargoNome.next()) {
+                        String cargo = rsCargoNome.getString("cargo");
+                        String nome = rsCargoNome.getString("nome");
+
+                        if (CARGO_CAIXA.equalsIgnoreCase(cargo)) {
+                            if (enviaTexto == null) {
+                                senha = jpfSenha.getText();
+                                enviaTexto = new NN_Mercado_TelaInicial();
+                                enviaTexto.setVisible(true);
+                                enviaTexto.recebeDados(nome);
+                            }
+                            dispose();
+                        } else if (CARGO_GERENTE.equalsIgnoreCase(cargo)) {
+                            if (enviaTexto == null) {
+                                senha = jpfSenha.getText();
+                                enviaText = new NN_Mercado_TelaGerente();
+                                enviaText.setVisible(true);
+                                enviaText.recebeDados(nome);
+                            }
+                            dispose();
+                        }
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!");
+                }
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao executar consulta ao Banco de Dados: " + e.getMessage());
+        }
+    }*/
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -206,11 +252,10 @@ public class NN_Mercado_TelaLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void ButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEntrarActionPerformed
-
         try {
             Logar();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(NN_Mercado_TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException e) {
+            Logger.getLogger(NN_Mercado_TelaLogin.class.getName()).log(Level.SEVERE, null, e);
         }
 
     }//GEN-LAST:event_ButtonEntrarActionPerformed
