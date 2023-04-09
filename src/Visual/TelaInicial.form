@@ -121,7 +121,7 @@
     <Component class="javax.swing.JDesktopPane" name="jDesktopPane4">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="3c" green="2d" red="c" type="rgb"/>
+          <Color blue="41" green="3f" red="3c" type="rgb"/>
         </Property>
       </Properties>
     </Component>

@@ -2,6 +2,7 @@ package Visual;
 
 import java.sql.*;
 import DAO.ConectaBanco;
+import com.formdev.flatlaf.IntelliJTheme;
 import java.awt.Color;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +20,7 @@ public class NN_Mercado_TelaLogin extends javax.swing.JFrame {
     //Construtor
     public NN_Mercado_TelaLogin() throws ClassNotFoundException {
         initComponents();
-        getContentPane().setBackground(new Color(8, 13, 32));
+        //getContentPane().setBackground(new Color(8, 13, 32));
         con = ConectaBanco.conectabanco();
 
     }
@@ -266,20 +267,8 @@ public class NN_Mercado_TelaLogin extends javax.swing.JFrame {
 
     public static void main(String args[]) {
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NN_Mercado_TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NN_Mercado_TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NN_Mercado_TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NN_Mercado_TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            IntelliJTheme.setup(NN_Mercado_TelaLogin.class.getResourceAsStream("/Visual_Studio_2019_Dark_Theme.theme.json"));
+        } catch (Exception e) {
         }
 
         /* Create and display the form */

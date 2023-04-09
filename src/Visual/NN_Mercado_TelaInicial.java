@@ -2,6 +2,7 @@ package Visual;
 
 import DAO.ConectaBanco;
 import Cálculos.PrecoTotalCompra;
+import com.formdev.flatlaf.IntelliJTheme;
 import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -109,7 +110,7 @@ public final class NN_Mercado_TelaInicial extends javax.swing.JFrame {
         apertouformadepagamento = 0;
 
     }
-   
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -736,15 +737,17 @@ public final class NN_Mercado_TelaInicial extends javax.swing.JFrame {
      * @throws java.lang.ClassNotFoundException
      */
     public static void main(String args[]) throws ClassNotFoundException {
+        try {
+            IntelliJTheme.setup(NN_Mercado_TelaInicial.class.getResourceAsStream("/Visual_Studio_2019_Dark_Theme.theme.json"));
+        } catch (Exception e) {
+        }
 
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new NN_Mercado_TelaInicial().setVisible(true);
-
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(NN_Mercado_TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                new NN_Mercado_TelaInicial().setVisible(true);
+                
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(NN_Mercado_TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }

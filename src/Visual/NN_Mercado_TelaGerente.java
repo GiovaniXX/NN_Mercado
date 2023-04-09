@@ -1,6 +1,7 @@
 package Visual;
 
 import DAO.ConectaBanco;
+import com.formdev.flatlaf.IntelliJTheme;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.awt.Desktop;
@@ -54,9 +55,11 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        Panel_PdvSistemaVendasNNmercado = new javax.swing.JPanel();
+        lbl_PdvSistemavendasNNmercado = new javax.swing.JLabel();
+        Panel_Botoes_1 = new javax.swing.JPanel();
         ButtonAbrirVenda = new javax.swing.JButton();
+        lbl_Menu_2 = new javax.swing.JLabel();
         ButtonCadProd = new javax.swing.JButton();
         ButtonCadFunc = new javax.swing.JButton();
         ButtonPesquisarProd = new javax.swing.JButton();
@@ -66,6 +69,15 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtNomeGerente = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        Panel_Botoes_2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        lbl_Menu_1 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        lbl_Logo = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         MenuArquivo = new javax.swing.JMenu();
         SubMenuVenda = new javax.swing.JMenuItem();
@@ -88,28 +100,42 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
         jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("NN Mercado");
         setExtendedState(6);
+        setMaximumSize(new java.awt.Dimension(1920, 1080));
+        setMinimumSize(new java.awt.Dimension(1366, 768));
+        setPreferredSize(new java.awt.Dimension(1366, 768));
 
         jScrollPane1.setBackground(new java.awt.Color(12, 45, 60));
 
-        jPanel1.setBackground(new java.awt.Color(12, 45, 60));
+        jPanel1.setMaximumSize(new java.awt.Dimension(1920, 1080));
+        jPanel1.setMinimumSize(new java.awt.Dimension(1366, 768));
 
-        jPanel2.setBackground(new java.awt.Color(12, 45, 60));
+        lbl_PdvSistemavendasNNmercado.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lbl_PdvSistemavendasNNmercado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_PdvSistemavendasNNmercado.setText("PDV - SISTEMA DE VENDA NN MERCADO");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 877, Short.MAX_VALUE)
+        javax.swing.GroupLayout Panel_PdvSistemaVendasNNmercadoLayout = new javax.swing.GroupLayout(Panel_PdvSistemaVendasNNmercado);
+        Panel_PdvSistemaVendasNNmercado.setLayout(Panel_PdvSistemaVendasNNmercadoLayout);
+        Panel_PdvSistemaVendasNNmercadoLayout.setHorizontalGroup(
+            Panel_PdvSistemaVendasNNmercadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_PdvSistemaVendasNNmercadoLayout.createSequentialGroup()
+                .addGap(247, 247, 247)
+                .addComponent(lbl_PdvSistemavendasNNmercado, javax.swing.GroupLayout.PREFERRED_SIZE, 872, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 65, Short.MAX_VALUE)
+        Panel_PdvSistemaVendasNNmercadoLayout.setVerticalGroup(
+            Panel_PdvSistemaVendasNNmercadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_PdvSistemaVendasNNmercadoLayout.createSequentialGroup()
+                .addGap(0, 12, Short.MAX_VALUE)
+                .addComponent(lbl_PdvSistemavendasNNmercado))
         );
 
-        jPanel3.setBackground(new java.awt.Color(12, 45, 60));
+        Panel_Botoes_1.setMaximumSize(new java.awt.Dimension(236, 600));
+        Panel_Botoes_1.setMinimumSize(new java.awt.Dimension(236, 600));
+        Panel_Botoes_1.setPreferredSize(new java.awt.Dimension(236, 600));
 
-        ButtonAbrirVenda.setBackground(new java.awt.Color(12, 45, 60));
+        ButtonAbrirVenda.setBackground(new java.awt.Color(60, 63, 65));
         ButtonAbrirVenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/MercadosNLAbrirVenda.png"))); // NOI18N
         ButtonAbrirVenda.setText("F1 - Abrir Venda                 ");
         ButtonAbrirVenda.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -119,7 +145,11 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
             }
         });
 
-        ButtonCadProd.setBackground(new java.awt.Color(12, 45, 60));
+        lbl_Menu_2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lbl_Menu_2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_Menu_2.setText("Menu");
+
+        ButtonCadProd.setBackground(new java.awt.Color(60, 63, 65));
         ButtonCadProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/MercadosNLProdutoNovo.png"))); // NOI18N
         ButtonCadProd.setText("F2 - Cadastrar Produto     ");
         ButtonCadProd.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -129,7 +159,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
             }
         });
 
-        ButtonCadFunc.setBackground(new java.awt.Color(12, 45, 60));
+        ButtonCadFunc.setBackground(new java.awt.Color(60, 63, 65));
         ButtonCadFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/MercadosNLAdicionaFunc.png"))); // NOI18N
         ButtonCadFunc.setText("F3 - Cadastrar Funcionário");
         ButtonCadFunc.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -139,7 +169,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
             }
         });
 
-        ButtonPesquisarProd.setBackground(new java.awt.Color(12, 45, 60));
+        ButtonPesquisarProd.setBackground(new java.awt.Color(60, 63, 65));
         ButtonPesquisarProd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/MercadosNLPesquisarProd.png"))); // NOI18N
         ButtonPesquisarProd.setText("F4 - Pesquisar Produto     ");
         ButtonPesquisarProd.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -149,7 +179,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
             }
         });
 
-        ButtonPesquisarFunc.setBackground(new java.awt.Color(12, 45, 60));
+        ButtonPesquisarFunc.setBackground(new java.awt.Color(60, 63, 65));
         ButtonPesquisarFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/MercadosNLPesquisarFunc.png"))); // NOI18N
         ButtonPesquisarFunc.setText("F5 - Pesquisar Funcionário ");
         ButtonPesquisarFunc.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -159,7 +189,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
             }
         });
 
-        ButtonEmitirRel.setBackground(new java.awt.Color(12, 45, 60));
+        ButtonEmitirRel.setBackground(new java.awt.Color(60, 63, 65));
         ButtonEmitirRel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/MercadosNLProduto.png"))); // NOI18N
         ButtonEmitirRel.setText("          Emitir Relatório         ");
         ButtonEmitirRel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -169,38 +199,38 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout Panel_Botoes_1Layout = new javax.swing.GroupLayout(Panel_Botoes_1);
+        Panel_Botoes_1.setLayout(Panel_Botoes_1Layout);
+        Panel_Botoes_1Layout.setHorizontalGroup(
+            Panel_Botoes_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_Botoes_1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(ButtonCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(ButtonCadFunc)
-                                .addComponent(ButtonAbrirVenda))
-                            .addComponent(ButtonPesquisarProd, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ButtonPesquisarFunc)
-                            .addComponent(ButtonEmitirRel))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGroup(Panel_Botoes_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_Menu_2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonAbrirVenda)
+                    .addGroup(Panel_Botoes_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(ButtonCadFunc)
+                        .addComponent(ButtonCadProd))
+                    .addComponent(ButtonPesquisarProd)
+                    .addComponent(ButtonPesquisarFunc))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_Botoes_1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ButtonEmitirRel)
                 .addContainerGap())
         );
 
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {ButtonAbrirVenda, ButtonCadFunc, ButtonCadProd, ButtonEmitirRel, ButtonPesquisarFunc, ButtonPesquisarProd});
+        Panel_Botoes_1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {ButtonAbrirVenda, ButtonCadFunc, ButtonCadProd, ButtonEmitirRel, ButtonPesquisarFunc, ButtonPesquisarProd});
 
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+        Panel_Botoes_1Layout.setVerticalGroup(
+            Panel_Botoes_1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_Botoes_1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_Menu_2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ButtonAbrirVenda)
                 .addGap(18, 18, 18)
-                .addComponent(ButtonCadProd, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ButtonCadProd)
                 .addGap(18, 18, 18)
                 .addComponent(ButtonCadFunc)
                 .addGap(18, 18, 18)
@@ -209,13 +239,10 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
                 .addComponent(ButtonPesquisarFunc)
                 .addGap(18, 18, 18)
                 .addComponent(ButtonEmitirRel)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {ButtonAbrirVenda, ButtonCadFunc, ButtonCadProd, ButtonEmitirRel, ButtonPesquisarFunc, ButtonPesquisarProd});
-
-        jPanel4.setBackground(new java.awt.Color(12, 45, 60));
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Panel_Botoes_1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {ButtonAbrirVenda, ButtonCadFunc, ButtonCadProd, ButtonEmitirRel, ButtonPesquisarFunc, ButtonPesquisarProd});
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -249,36 +276,134 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Copyright © 2023 GvC - Todos os direitos reservados");
 
+        Panel_Botoes_2.setMaximumSize(new java.awt.Dimension(236, 600));
+        Panel_Botoes_2.setMinimumSize(new java.awt.Dimension(236, 600));
+        Panel_Botoes_2.setPreferredSize(new java.awt.Dimension(236, 600));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/MercadosNLAbrirVenda.png"))); // NOI18N
+        jButton1.setText("NF - NNmercado");
+        jButton1.setEnabled(false);
+        jButton1.setMaximumSize(new java.awt.Dimension(218, 55));
+        jButton1.setMinimumSize(new java.awt.Dimension(218, 55));
+        jButton1.setPreferredSize(new java.awt.Dimension(218, 55));
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/MercadosNLProdutoNovo.png"))); // NOI18N
+        jButton2.setText("NF - NNmercado");
+        jButton2.setEnabled(false);
+        jButton2.setMaximumSize(new java.awt.Dimension(216, 55));
+        jButton2.setMinimumSize(new java.awt.Dimension(216, 55));
+        jButton2.setPreferredSize(new java.awt.Dimension(216, 55));
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/MercadosNLPesquisarProd.png"))); // NOI18N
+        jButton4.setText("NF - NNmercado");
+        jButton4.setEnabled(false);
+        jButton4.setMaximumSize(new java.awt.Dimension(221, 55));
+        jButton4.setMinimumSize(new java.awt.Dimension(221, 55));
+        jButton4.setPreferredSize(new java.awt.Dimension(221, 55));
+
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/MercadosNLPesquisarFunc.png"))); // NOI18N
+        jButton5.setText("NF - NNmercado");
+        jButton5.setEnabled(false);
+        jButton5.setMaximumSize(new java.awt.Dimension(224, 55));
+        jButton5.setMinimumSize(new java.awt.Dimension(224, 55));
+        jButton5.setPreferredSize(new java.awt.Dimension(224, 55));
+
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/MercadosNLAdicionaFunc.png"))); // NOI18N
+        jButton6.setText("NF - NNmercado");
+        jButton6.setEnabled(false);
+        jButton6.setMaximumSize(new java.awt.Dimension(220, 55));
+        jButton6.setMinimumSize(new java.awt.Dimension(220, 55));
+        jButton6.setPreferredSize(new java.awt.Dimension(220, 55));
+
+        lbl_Menu_1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        lbl_Menu_1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_Menu_1.setText("Menu");
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/MercadosNLProduto.png"))); // NOI18N
+        jButton3.setText("NF - NNmercado");
+        jButton3.setEnabled(false);
+        jButton3.setMaximumSize(new java.awt.Dimension(221, 55));
+        jButton3.setMinimumSize(new java.awt.Dimension(221, 55));
+        jButton3.setPreferredSize(new java.awt.Dimension(221, 55));
+
+        javax.swing.GroupLayout Panel_Botoes_2Layout = new javax.swing.GroupLayout(Panel_Botoes_2);
+        Panel_Botoes_2.setLayout(Panel_Botoes_2Layout);
+        Panel_Botoes_2Layout.setHorizontalGroup(
+            Panel_Botoes_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_Botoes_2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Panel_Botoes_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lbl_Menu_1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
+        Panel_Botoes_2Layout.setVerticalGroup(
+            Panel_Botoes_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Panel_Botoes_2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_Menu_1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        lbl_Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo_05.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Panel_PdvSistemaVendasNNmercado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(Panel_Botoes_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
-                        .addGap(18, 18, 18))))
+                        .addGap(23, 23, 23))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lbl_Logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Panel_Botoes_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Panel_PdvSistemaVendasNNmercado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(85, 85, 85)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addContainerGap())))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Panel_Botoes_2, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Panel_Botoes_1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addContainerGap())
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -365,14 +490,14 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1366, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1)
-                .addGap(0, 0, 0))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 739, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -479,7 +604,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
             JasperExportManager.exportReportToPdfFile(jasper_print, "C:/RelVendas/VendasSupermercadosNL.pdf");
 
             //abrir o pdf automaticamente
-            File file = new File("C:/RelVendas/VendasNN_Mercado.pdf");
+            File file = new File("C:/RelVendas/VendasSupermercadosNL.pdf");
             try {
                 Desktop.getDesktop().open(file);
             } catch (IOException e) {
@@ -503,29 +628,10 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            IntelliJTheme.setup(NN_Mercado_TelaGerente.class.getResourceAsStream("/Visual_Studio_2019_Dark_Theme.theme.json"));
+        } catch (Exception e) {
         }
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -549,12 +655,21 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
     private javax.swing.JMenu MenuArquivo;
     private javax.swing.JMenu MenuCadastrar;
     private javax.swing.JMenu MenuExibir;
+    private javax.swing.JPanel Panel_Botoes_1;
+    private javax.swing.JPanel Panel_Botoes_2;
+    private javax.swing.JPanel Panel_PdvSistemaVendasNNmercado;
     private javax.swing.JMenuItem SubMenuExibiProd;
     private javax.swing.JMenuItem SubMenuExibirFunc;
     private javax.swing.JMenuItem SubMenuFunc;
     private javax.swing.JMenuItem SubMenuProd;
     private javax.swing.JMenuItem SubMenuSair;
     private javax.swing.JMenuItem SubMenuVenda;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
@@ -564,10 +679,12 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbl_Logo;
+    private javax.swing.JLabel lbl_Menu_1;
+    private javax.swing.JLabel lbl_Menu_2;
+    private javax.swing.JLabel lbl_PdvSistemavendasNNmercado;
     private javax.swing.JLabel txtNomeGerente;
     // End of variables declaration//GEN-END:variables
 }

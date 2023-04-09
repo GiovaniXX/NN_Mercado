@@ -1,5 +1,6 @@
 package Visual;
 
+import com.formdev.flatlaf.IntelliJTheme;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -7,7 +8,8 @@ public class TelaInicial extends javax.swing.JFrame {
 
     public TelaInicial() {
         initComponents();
-        //Para maximizar a janela via código basta inserir: this.setExtendedState(MAXIMIZED_BOTH);
+        //Para maximizar a janela via código basta inserir: 
+        //this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     @SuppressWarnings("unchecked")
@@ -32,7 +34,7 @@ public class TelaInicial extends javax.swing.JFrame {
         setExtendedState(6);
         setPreferredSize(new java.awt.Dimension(1366, 768));
 
-        jDesktopPane4.setBackground(new java.awt.Color(12, 45, 60));
+        jDesktopPane4.setBackground(new java.awt.Color(60, 63, 65));
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -133,28 +135,10 @@ public class TelaInicial extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            IntelliJTheme.setup(TelaInicial.class.getResourceAsStream("/Visual_Studio_2019_Dark_Theme.theme.json"));
+        } catch (Exception e) {
         }
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
