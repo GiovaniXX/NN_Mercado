@@ -8,18 +8,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class NN_mercado_TelaEdicaoProduto extends javax.swing.JFrame {
 
+    JLabel lbl_StatusConnexao;
     Connection con;
     PreparedStatement pst;
     ResultSet rs;
     String id;
 
-    public NN_mercado_TelaEdicaoProduto() throws ClassNotFoundException {
+    public NN_mercado_TelaEdicaoProduto() throws ClassNotFoundException, SQLException, InterruptedException {
         initComponents();
-        con = ConectaBanco.conectabanco();
+        con = ConectaBanco.conectabanco(lbl_StatusConnexao);
 
     }
 
@@ -31,7 +33,7 @@ public class NN_mercado_TelaEdicaoProduto extends javax.swing.JFrame {
         this.id = id_codigo;
     }
 
-    public void editarProdutos() throws ClassNotFoundException {
+    public void editarProdutos() throws ClassNotFoundException, InterruptedException {
         String sql = "update produto set nome = ?, cod_barras = ?, preco = ?, marca= ? where id_produto = ?";
 
         try {
@@ -238,7 +240,7 @@ public class NN_mercado_TelaEdicaoProduto extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             editarProdutos();
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | InterruptedException ex) {
             Logger.getLogger(NN_mercado_TelaEdicaoProduto.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -257,13 +259,11 @@ public class NN_mercado_TelaEdicaoProduto extends javax.swing.JFrame {
         }
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new NN_mercado_TelaEdicaoProduto().setVisible(true);
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(NN_mercado_TelaEdicaoProduto.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                new NN_mercado_TelaEdicaoProduto().setVisible(true);
+            } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
+                Logger.getLogger(NN_mercado_TelaEdicaoProduto.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }

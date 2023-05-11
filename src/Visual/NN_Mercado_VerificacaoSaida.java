@@ -8,19 +8,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class NN_Mercado_VerificacaoSaida extends javax.swing.JFrame {
 
+    JLabel lbl_StatusConnexao;
     Connection con = null;
     PreparedStatement pst = null;
     ResultSet rs = null; //ResultSet é uma interface utilizada pra guardar dados vindos de um banco de dados.
     private NN_Mercado_TelaInicial inicial;
 
-    public NN_Mercado_VerificacaoSaida(NN_Mercado_TelaInicial tela_ini) throws ClassNotFoundException {
+    public NN_Mercado_VerificacaoSaida(NN_Mercado_TelaInicial tela_ini) throws ClassNotFoundException, SQLException, InterruptedException {
         this.inicial = tela_ini;
         initComponents();
-        con = ConectaBanco.conectabanco();
+        con = ConectaBanco.conectabanco(lbl_StatusConnexao);
     }
 
     public NN_Mercado_VerificacaoSaida() throws ClassNotFoundException {

@@ -13,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRResultSetDataSource;
@@ -22,6 +23,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 
 public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
 
+    JLabel lbl_StatusConnexao;
     Connection con;
     PreparedStatement pst;
     ResultSet rs;
@@ -30,10 +32,11 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
      * Creates new form MercadosNLTelaGerente
      *
      * @throws java.lang.ClassNotFoundException
+     * @throws java.sql.SQLException
      */
-    public NN_Mercado_TelaGerente() throws ClassNotFoundException {
+    public NN_Mercado_TelaGerente() throws ClassNotFoundException, SQLException, InterruptedException {
         initComponents();
-        con = ConectaBanco.conectabanco();
+        con = ConectaBanco.conectabanco(lbl_StatusConnexao);
 
     }
 
@@ -102,9 +105,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("NN Mercado");
         setExtendedState(6);
-        setMaximumSize(new java.awt.Dimension(1920, 1080));
         setMinimumSize(new java.awt.Dimension(1366, 768));
-        setPreferredSize(new java.awt.Dimension(1366, 768));
 
         jScrollPane1.setBackground(new java.awt.Color(12, 45, 60));
 
@@ -362,7 +363,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        lbl_Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo_05.png"))); // NOI18N
+        lbl_Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Carrinho1.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -391,17 +392,17 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(Panel_PdvSistemaVendasNNmercado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(85, 85, 85)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lbl_Logo, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Panel_Botoes_2, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Panel_Botoes_1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addContainerGap())
         );
@@ -489,15 +490,13 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1366, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 739, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 745, Short.MAX_VALUE)
         );
 
         pack();
@@ -506,7 +505,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
     private void ButtonCadProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCadProdActionPerformed
         try {
             new NN_Mercado_TelaCadastroProduto().setVisible(true);
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
             Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ButtonCadProdActionPerformed
@@ -514,7 +513,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
     private void ButtonCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCadFuncActionPerformed
         try {
             new NN_Mercado_TelaCadastroFuncionario().setVisible(true);
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
             Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ButtonCadFuncActionPerformed
@@ -524,7 +523,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
         if (enviaTexto == null) {
             try {
                 enviaTexto = new NN_Mercado_TelaInicial();
-            } catch (ClassNotFoundException ex) {
+            } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
                 Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(Level.SEVERE, null, ex);
             }
             enviaTexto.setVisible(true);
@@ -536,7 +535,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
     private void ButtonPesquisarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPesquisarProdActionPerformed
         try {
             new NN_Mercado_TelaPesquisarProduto().setVisible(true);
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
             Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ButtonPesquisarProdActionPerformed
@@ -544,7 +543,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
     private void ButtonPesquisarFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonPesquisarFuncActionPerformed
         try {
             new NN_Mercado_TelaPesquisarFuncionario().setVisible(true);
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
             Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ButtonPesquisarFuncActionPerformed
@@ -552,7 +551,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
     private void SubMenuVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuVendaActionPerformed
         try {
             new NN_Mercado_TelaInicial().setVisible(true);
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
             Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_SubMenuVendaActionPerformed
@@ -560,7 +559,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
     private void SubMenuFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuFuncActionPerformed
         try {
             new NN_Mercado_TelaCadastroFuncionario().setVisible(true);
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
             Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_SubMenuFuncActionPerformed
@@ -568,7 +567,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
     private void SubMenuProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuProdActionPerformed
         try {
             new NN_Mercado_TelaCadastroProduto().setVisible(true);
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
             Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_SubMenuProdActionPerformed
@@ -576,7 +575,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
     private void SubMenuExibiProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuExibiProdActionPerformed
         try {
             new NN_Mercado_TelaPesquisarProduto().setVisible(true);
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
             Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_SubMenuExibiProdActionPerformed
@@ -584,7 +583,7 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
     private void SubMenuExibirFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubMenuExibirFuncActionPerformed
         try {
             new NN_Mercado_TelaPesquisarFuncionario().setVisible(true);
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
             Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_SubMenuExibirFuncActionPerformed
@@ -634,13 +633,11 @@ public class NN_Mercado_TelaGerente extends javax.swing.JFrame {
         }
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new NN_Mercado_TelaGerente().setVisible(true);
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                new NN_Mercado_TelaGerente().setVisible(true);
+            } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
+                Logger.getLogger(NN_Mercado_TelaGerente.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }

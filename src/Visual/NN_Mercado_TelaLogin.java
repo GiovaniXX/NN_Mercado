@@ -3,10 +3,13 @@ package Visual;
 import java.sql.*;
 import DAO.ConectaBanco;
 import com.formdev.flatlaf.IntelliJTheme;
-import java.awt.Color;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 public class NN_Mercado_TelaLogin extends javax.swing.JFrame {
 
@@ -18,14 +21,46 @@ public class NN_Mercado_TelaLogin extends javax.swing.JFrame {
     static String senha;
 
     //Construtor
-    public NN_Mercado_TelaLogin() throws ClassNotFoundException {
+    public NN_Mercado_TelaLogin() throws ClassNotFoundException, SQLException, InterruptedException {
         initComponents();
         //getContentPane().setBackground(new Color(8, 13, 32));
-        con = ConectaBanco.conectabanco();
-
+        status();
+        //setIcon();       
+        con = ConectaBanco.conectabanco(lbl_StatusConnexao);
     }
 
-    public void Logar() throws ClassNotFoundException {
+    private void status() {
+        try {
+            Timer timer = new Timer(2000, (ActionEvent e) -> {
+                try {
+                    con = ConectaBanco.conectabanco(lbl_StatusConnexao);
+                    if (con != null) {
+                        SGBD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Connected.png")));
+                    } else {
+                        SGBD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Disconected.png")));
+                    }
+                } catch (ClassNotFoundException | SQLException ex) {
+                    JOptionPane.showMessageDialog(null, ex);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(NN_Mercado_TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
+                } finally {
+                    try {
+                        if (con != null) {
+                            con.close();
+                        }
+                    } catch (SQLException ex) {
+                        JOptionPane.showMessageDialog(null, ex);
+                    }
+                }
+            });
+            timer.setRepeats(false);
+            timer.start();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
+    public void Logar() throws ClassNotFoundException, InterruptedException {
         NN_Mercado_TelaInicial enviaTexto = null;
         NN_Mercado_TelaGerente enviaText = null;
 
@@ -36,9 +71,9 @@ public class NN_Mercado_TelaLogin extends javax.swing.JFrame {
             pst = con.prepareStatement(sql); //Inicializa a conexão
             pstCargo = con.prepareStatement(sqlCargo);
             pstCargo.setString(1, txtUsuario.getText());
-            pstCargo.setString(2, (jpfSenha.getText()));
+            pstCargo.setString(2, (Arrays.toString(jpfSenha.getPassword())));
             pst.setString(1, txtUsuario.getText());
-            pst.setString(2, (jpfSenha.getText()));
+            pst.setString(2, (Arrays.toString(jpfSenha.getPassword())));
 
             rs = pst.executeQuery();
             rsCargo = pstCargo.executeQuery();
@@ -62,7 +97,7 @@ public class NN_Mercado_TelaLogin extends javax.swing.JFrame {
                     if (caixa_forma1.equals(cargo_bd) || caixa_forma2.equals(cargo_bd) || caixa_forma3.equals(cargo_bd)) {
 
                         if (enviaTexto == null) {
-                            senha = jpfSenha.getText();
+                            senha = Arrays.toString(jpfSenha.getPassword());
                             enviaTexto = new NN_Mercado_TelaInicial();
                             enviaTexto.setVisible(true);
                             enviaTexto.recebeDados(nome_bd);
@@ -70,7 +105,7 @@ public class NN_Mercado_TelaLogin extends javax.swing.JFrame {
                         dispose();
                     } else if (gerente_forma1.equals(cargo_bd) || gerente_forma2.equals(cargo_bd) || gerente_forma3.equals(cargo_bd)) {
                         if (enviaTexto == null) {
-                            senha = jpfSenha.getText();
+                            senha = Arrays.toString(jpfSenha.getPassword());
                             enviaText = new NN_Mercado_TelaGerente();
                             enviaText.setVisible(true);
                             enviaText.recebeDados(nome_bd);
@@ -86,184 +121,155 @@ public class NN_Mercado_TelaLogin extends javax.swing.JFrame {
         }
     }
 
-    /*public void logar() {
-        final String SQL_SELECT_USUARIO = "SELECT * FROM usuario WHERE usuario = ? AND senha = ?";
-        final String SQL_SELECT_CARGO_NOME = "SELECT cargo, nome FROM usuario AS u JOIN funcionario AS f ON iduser = f.idfuncionario WHERE usuario = ? AND senha = ?";
-        final String CARGO_CAIXA = "Caixa";
-        final String CARGO_GERENTE = "Gerente";
-
-        try (PreparedStatement stmtSelectUsuario = con.prepareStatement(SQL_SELECT_USUARIO); PreparedStatement stmtSelectCargoNome = con.prepareStatement(SQL_SELECT_CARGO_NOME)) {
-
-            stmtSelectCargoNome.setString(1, txtUsuario.getText());
-            stmtSelectCargoNome.setString(2, jpfSenha.getText());
-            stmtSelectUsuario.setString(1, txtUsuario.getText());
-            stmtSelectUsuario.setString(2, jpfSenha.getText());
-
-            try (ResultSet rsUsuario = stmtSelectUsuario.executeQuery(); ResultSet rsCargoNome = stmtSelectCargoNome.executeQuery()) {
-
-                if (rsUsuario.next()) {
-                    if (rsCargoNome.next()) {
-                        String cargo = rsCargoNome.getString("cargo");
-                        String nome = rsCargoNome.getString("nome");
-
-                        if (CARGO_CAIXA.equalsIgnoreCase(cargo)) {
-                            if (enviaTexto == null) {
-                                senha = jpfSenha.getText();
-                                enviaTexto = new NN_Mercado_TelaInicial();
-                                enviaTexto.setVisible(true);
-                                enviaTexto.recebeDados(nome);
-                            }
-                            dispose();
-                        } else if (CARGO_GERENTE.equalsIgnoreCase(cargo)) {
-                            if (enviaTexto == null) {
-                                senha = jpfSenha.getText();
-                                enviaText = new NN_Mercado_TelaGerente();
-                                enviaText.setVisible(true);
-                                enviaText.recebeDados(nome);
-                            }
-                            dispose();
-                        }
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos!");
-                }
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Erro ao executar consulta ao Banco de Dados: " + e.getMessage());
-        }
-    }*/
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
         LabelUsuario = new javax.swing.JLabel();
-        txtUsuario = new javax.swing.JTextField();
         LabelSenha = new javax.swing.JLabel();
-        jpfSenha = new javax.swing.JPasswordField();
-        ButtonCancelar = new javax.swing.JButton();
-        ButtonEntrar = new javax.swing.JButton();
+        SGBD = new javax.swing.JLabel();
+        lbl_StatusConnexao = new javax.swing.JLabel();
+        txtUsuario = new up_class_custom.TextField();
+        jpfSenha = new up_class_custom.PasswordField();
+        jpfChave = new up_class_custom.PasswordField();
+        jLabel3 = new javax.swing.JLabel();
+        buttonEntrar = new up_class_custom.Button();
+        button_Cancelar = new up_class_custom.Button();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle(".:NN_Mercado™ tela Login");
+        setBackground(new java.awt.Color(70, 73, 75));
         setLocation(new java.awt.Point(500, 250));
-        setUndecorated(true);
         setResizable(false);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setText("Login de Acesso");
 
-        LabelUsuario.setBackground(new java.awt.Color(255, 255, 255));
-        LabelUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        LabelUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         LabelUsuario.setText("Usuário");
 
-        txtUsuario.setBackground(new java.awt.Color(12, 45, 60));
-        txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsuarioActionPerformed(evt);
-            }
-        });
-
-        LabelSenha.setBackground(new java.awt.Color(255, 255, 255));
-        LabelSenha.setForeground(new java.awt.Color(255, 255, 255));
+        LabelSenha.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         LabelSenha.setText("Senha");
 
-        jpfSenha.setBackground(new java.awt.Color(12, 45, 60));
-        jpfSenha.setForeground(new java.awt.Color(255, 255, 255));
-        jpfSenha.addActionListener(new java.awt.event.ActionListener() {
+        SGBD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Disconected.png"))); // NOI18N
+
+        lbl_StatusConnexao.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setText("Chave");
+
+        buttonEntrar.setBackground(new java.awt.Color(70, 73, 75));
+        buttonEntrar.setText("Entrar");
+        buttonEntrar.setColor(new java.awt.Color(70, 73, 75));
+        buttonEntrar.setRadius(25);
+        buttonEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jpfSenhaActionPerformed(evt);
+                buttonEntrarActionPerformed(evt);
             }
         });
 
-        ButtonCancelar.setBackground(new java.awt.Color(12, 45, 60));
-        ButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
-        ButtonCancelar.setText("Cancelar");
-        ButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+        button_Cancelar.setBackground(new java.awt.Color(70, 73, 75));
+        button_Cancelar.setText("Cancelar");
+        button_Cancelar.setColor(new java.awt.Color(70, 73, 75));
+        button_Cancelar.setRadius(25);
+        button_Cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonCancelarActionPerformed(evt);
+                button_CancelarActionPerformed(evt);
             }
         });
 
-        ButtonEntrar.setBackground(new java.awt.Color(12, 45, 60));
-        ButtonEntrar.setForeground(new java.awt.Color(255, 255, 255));
-        ButtonEntrar.setText("Entrar");
-        ButtonEntrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ButtonEntrarActionPerformed(evt);
-            }
-        });
+        jSeparator1.setBackground(new java.awt.Color(187, 187, 187));
+        jSeparator1.setForeground(new java.awt.Color(187, 187, 187));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(LabelSenha)
-                    .addComponent(LabelUsuario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(102, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(ButtonCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
-                        .addComponent(ButtonEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtUsuario)
-                    .addComponent(jpfSenha))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(134, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(110, 110, 110))
+                        .addComponent(buttonEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                        .addComponent(button_Cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jpfChave, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jpfSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(69, 69, 69))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jSeparator1)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3)
+                                .addComponent(LabelSenha))
+                            .addComponent(LabelUsuario))
+                        .addGap(142, 142, 142)
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(SGBD)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbl_StatusConnexao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LabelUsuario))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jpfSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LabelSenha))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonCancelar)
-                    .addComponent(ButtonEntrar))
-                .addContainerGap(57, Short.MAX_VALUE))
+                    .addComponent(jpfChave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button_Cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonEntrar, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(SGBD, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(169, 169, 169)
+                        .addComponent(lbl_StatusConnexao, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jpfSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jpfSenhaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jpfSenhaActionPerformed
-
-    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsuarioActionPerformed
-
-    private void ButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEntrarActionPerformed
+    private void buttonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEntrarActionPerformed
         try {
             Logar();
-        } catch (ClassNotFoundException e) {
-            Logger.getLogger(NN_Mercado_TelaLogin.class.getName()).log(Level.SEVERE, null, e);
+        } catch (ClassNotFoundException | InterruptedException ex) {
+            Logger.getLogger(NN_Mercado_TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }//GEN-LAST:event_buttonEntrarActionPerformed
 
-    }//GEN-LAST:event_ButtonEntrarActionPerformed
-
-    private void ButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonCancelarActionPerformed
+    private void button_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_CancelarActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_ButtonCancelarActionPerformed
+    }//GEN-LAST:event_button_CancelarActionPerformed
 
     public static void main(String args[]) {
         try {
@@ -275,19 +281,28 @@ public class NN_Mercado_TelaLogin extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> {
             try {
                 new NN_Mercado_TelaLogin().setVisible(true);
-            } catch (ClassNotFoundException ex) {
+            } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
                 Logger.getLogger(NN_Mercado_TelaLogin.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ButtonCancelar;
-    private javax.swing.JButton ButtonEntrar;
     private javax.swing.JLabel LabelSenha;
     private javax.swing.JLabel LabelUsuario;
+    private javax.swing.JLabel SGBD;
+    private up_class_custom.Button buttonEntrar;
+    private up_class_custom.Button button_Cancelar;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPasswordField jpfSenha;
-    private javax.swing.JTextField txtUsuario;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JSeparator jSeparator1;
+    private up_class_custom.PasswordField jpfChave;
+    private up_class_custom.PasswordField jpfSenha;
+    private javax.swing.JLabel lbl_StatusConnexao;
+    private up_class_custom.TextField txtUsuario;
     // End of variables declaration//GEN-END:variables
+
+//    private void setIcon() {
+//        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/Icons/Icon.jpg")));
+//    }
 }

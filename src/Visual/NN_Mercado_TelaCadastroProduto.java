@@ -9,17 +9,19 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class NN_Mercado_TelaCadastroProduto extends javax.swing.JFrame {
 
+    JLabel lbl_StatusConnexao;
     Connection con;
     PreparedStatement pst;
     ResultSet rs;
 
-    public NN_Mercado_TelaCadastroProduto() throws ClassNotFoundException {
+    public NN_Mercado_TelaCadastroProduto() throws ClassNotFoundException, SQLException, InterruptedException {
         initComponents();
-        con = ConectaBanco.conectabanco();
+        con = ConectaBanco.conectabanco(lbl_StatusConnexao);
     }
 
     public void cadastrarProdutos() throws ParseException {
@@ -256,13 +258,11 @@ public class NN_Mercado_TelaCadastroProduto extends javax.swing.JFrame {
         }
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new NN_Mercado_TelaCadastroProduto().setVisible(true);
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(NN_Mercado_TelaCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                new NN_Mercado_TelaCadastroProduto().setVisible(true);
+            } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
+                Logger.getLogger(NN_Mercado_TelaCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }

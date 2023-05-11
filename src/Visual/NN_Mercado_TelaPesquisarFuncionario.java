@@ -8,18 +8,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
 public final class NN_Mercado_TelaPesquisarFuncionario extends javax.swing.JFrame {
 
+    JLabel lbl_StatusConnexao;
     Connection con;
     PreparedStatement pst;
     ResultSet rs;
 
-    public NN_Mercado_TelaPesquisarFuncionario() throws ClassNotFoundException {
+    public NN_Mercado_TelaPesquisarFuncionario() throws ClassNotFoundException, SQLException, InterruptedException {
         initComponents();
-        con = ConectaBanco.conectabanco();
+        con = ConectaBanco.conectabanco(lbl_StatusConnexao);
         listarFuncionarios();
     }
 
@@ -304,7 +306,7 @@ public final class NN_Mercado_TelaPesquisarFuncionario extends javax.swing.JFram
         enviaTexto = null;
         try {
             enviaTexto = new NN_Mercado_TelaEdicaoFuncionario();
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
             Logger.getLogger(NN_Mercado_TelaPesquisarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
         enviaTexto.setVisible(true);
@@ -337,13 +339,11 @@ public final class NN_Mercado_TelaPesquisarFuncionario extends javax.swing.JFram
         }
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new NN_Mercado_TelaPesquisarFuncionario().setVisible(true);
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(NN_Mercado_TelaPesquisarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                new NN_Mercado_TelaPesquisarFuncionario().setVisible(true);
+            } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
+                Logger.getLogger(NN_Mercado_TelaPesquisarFuncionario.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }

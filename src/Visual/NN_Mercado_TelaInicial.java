@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -18,6 +19,7 @@ public final class NN_Mercado_TelaInicial extends javax.swing.JFrame {
     NN_Mercado_TelaFormaDePagamento enviaPreco = null;
     NN_Mercado_TelaPagamentoDinheiro pag_dinheiro;
 
+    JLabel lbl_StatusConnexao;
     Connection con;
     PreparedStatement pst;
     PreparedStatement pstCupom;
@@ -40,10 +42,10 @@ public final class NN_Mercado_TelaInicial extends javax.swing.JFrame {
     int atualiza_cont;
     static int id_compra;
 
-    public NN_Mercado_TelaInicial() throws ClassNotFoundException {
+    public NN_Mercado_TelaInicial() throws ClassNotFoundException, SQLException, InterruptedException {
         initComponents();
-        txtCodigoBarras.grabFocus();
-        con = ConectaBanco.conectabanco();
+        txtCodigoBarras.grabFocus();      
+        con = ConectaBanco.conectabanco(lbl_StatusConnexao);
         AtualizaContador();
 
     }
@@ -672,7 +674,7 @@ public final class NN_Mercado_TelaInicial extends javax.swing.JFrame {
         } else if (KeyEvent.VK_F1 == key) {
             try {
                 new NN_Mercado_TelaPesquisa().setVisible(true);
-            } catch (ClassNotFoundException ex) {
+            } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
                 Logger.getLogger(NN_Mercado_TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else if (KeyEvent.VK_F3 == key) {
@@ -680,7 +682,7 @@ public final class NN_Mercado_TelaInicial extends javax.swing.JFrame {
             try {
                 verifica_saida = new NN_Mercado_VerificacaoSaida(this);
                 verifica_saida.setVisible(true);
-            } catch (ClassNotFoundException ex) {
+            } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
                 Logger.getLogger(NN_Mercado_TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
             }
 
@@ -746,7 +748,7 @@ public final class NN_Mercado_TelaInicial extends javax.swing.JFrame {
             try {
                 new NN_Mercado_TelaInicial().setVisible(true);
                 
-            } catch (ClassNotFoundException ex) {
+            } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
                 Logger.getLogger(NN_Mercado_TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
             }
         });

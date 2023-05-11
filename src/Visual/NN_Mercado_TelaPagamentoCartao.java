@@ -4,12 +4,13 @@ import Cálculos.TrocoDinheiro;
 import com.formdev.flatlaf.IntelliJTheme;
 import static java.awt.Color.red;
 import java.awt.Window;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class NN_Mercado_TelaPagamentoCartao extends javax.swing.JFrame {
-
+   
     private NN_Mercado_TelaFormaDePagamento principal;
     static float valor_t = 0;
     float troco;
@@ -221,6 +222,8 @@ public class NN_Mercado_TelaPagamentoCartao extends javax.swing.JFrame {
             new NN_Mercado_TelaInicial().setVisible(true);
         } catch (ClassNotFoundException e) {
             Logger.getLogger(NN_Mercado_TelaPagamentoDinheiro.class.getName()).log(Level.SEVERE, null, e);
+        } catch (SQLException | InterruptedException ex) {
+            Logger.getLogger(NN_Mercado_TelaPagamentoCartao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

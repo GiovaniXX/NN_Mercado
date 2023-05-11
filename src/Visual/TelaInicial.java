@@ -1,10 +1,11 @@
 package Visual;
 
 import com.formdev.flatlaf.IntelliJTheme;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class TelaInicial extends javax.swing.JFrame {
+public class TelaInicial extends javax.swing.JFrame {    
 
     public TelaInicial() {
         initComponents();
@@ -106,7 +107,7 @@ public class TelaInicial extends javax.swing.JFrame {
         TelaCadastroProduto user = null;
         try {
             user = new TelaCadastroProduto();
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
             Logger.getLogger(TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
         }
         user.setVisible(true);
@@ -124,7 +125,7 @@ public class TelaInicial extends javax.swing.JFrame {
         TelaCadastroFuncionario funcionario = null;
         try {
             funcionario = new TelaCadastroFuncionario();
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
             Logger.getLogger(TelaInicial.class.getName()).log(Level.SEVERE, null, ex);
         }
         funcionario.setVisible(true);

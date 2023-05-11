@@ -8,19 +8,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class NN_Mercado_TelaEdicaoFuncionario extends javax.swing.JFrame {
 
+    JLabel lbl_StatusConnexao;
     Connection con;
     PreparedStatement pst;
     PreparedStatement pstNome;
     ResultSet rs;
     String id;
 
-    public NN_Mercado_TelaEdicaoFuncionario() throws ClassNotFoundException {
+    public NN_Mercado_TelaEdicaoFuncionario() throws ClassNotFoundException, SQLException, InterruptedException {
         initComponents();
-        con = ConectaBanco.conectabanco();
+        con = ConectaBanco.conectabanco(lbl_StatusConnexao);
     }
 
     public void recebeDados(String nome, String cpf, String cargo, String id_codigo) {
@@ -30,7 +32,7 @@ public class NN_Mercado_TelaEdicaoFuncionario extends javax.swing.JFrame {
         this.id = id_codigo;
     }
 
-    public void editarFuncionarios() throws ClassNotFoundException {
+    public void editarFuncionarios() throws ClassNotFoundException, InterruptedException {
         NN_Mercado_TelaInicial enviaTexto = null;
         NN_Mercado_TelaGerente enviaText = null;
         String nome_bd;
@@ -252,9 +254,7 @@ public class NN_Mercado_TelaEdicaoFuncionario extends javax.swing.JFrame {
             enviaTexto.setVisible(true);
             enviaTexto.recebeDados(id, usuario, senha);
 
-        } catch (SQLException ex) {
-            Logger.getLogger(NN_Mercado_TelaEdicaoFuncionario.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (SQLException | ClassNotFoundException | InterruptedException ex) {
             Logger.getLogger(NN_Mercado_TelaEdicaoFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -267,7 +267,7 @@ public class NN_Mercado_TelaEdicaoFuncionario extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
             editarFuncionarios();
-        } catch (ClassNotFoundException ex) {
+        } catch (ClassNotFoundException | InterruptedException ex) {
             Logger.getLogger(NN_Mercado_TelaEdicaoFuncionario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -282,13 +282,11 @@ public class NN_Mercado_TelaEdicaoFuncionario extends javax.swing.JFrame {
         }
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new NN_Mercado_TelaEdicaoFuncionario().setVisible(true);
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(NN_Mercado_TelaEdicaoFuncionario.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                new NN_Mercado_TelaEdicaoFuncionario().setVisible(true);
+            } catch (ClassNotFoundException | SQLException | InterruptedException ex) {
+                Logger.getLogger(NN_Mercado_TelaEdicaoFuncionario.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }

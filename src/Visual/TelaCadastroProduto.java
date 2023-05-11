@@ -2,19 +2,21 @@ package Visual;
 
 import DAO.ConectaBanco;
 import java.sql.*;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils; //Para utilizar a biblioteca de listagem
 
 public class TelaCadastroProduto extends javax.swing.JInternalFrame {
 
+    JLabel lbl_StatusConnexao;
     Connection con;
     PreparedStatement pst;
     ResultSet rs;
 
-    public TelaCadastroProduto() throws ClassNotFoundException {
+    public TelaCadastroProduto() throws ClassNotFoundException, SQLException, InterruptedException {
         initComponents();
         this.setLocation(500, 200);
-        con = ConectaBanco.conectabanco();
+        con = ConectaBanco.conectabanco(lbl_StatusConnexao);
         listarProdutos();
 
     }
