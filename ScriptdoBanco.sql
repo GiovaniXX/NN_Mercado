@@ -25,23 +25,23 @@ CREATE TABLE IF NOT EXISTS Categoria (
 );
 
 CREATE TABLE IF NOT EXISTS Usuario (
-  idUsuario serial NOT NULL,
-  Funcionario_idFuncionario serial NOT NULL,
+  idUsuario BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  Funcionario_idFuncionario BIGINT UNSIGNED NOT NULL,
   Usuario VARCHAR(20) NOT NULL,
   Senha VARCHAR(20) NOT NULL,
   PRIMARY KEY(idUsuario),
   INDEX Usuario_FKIndex1(Funcionario_idFuncionario),
   FOREIGN KEY(Funcionario_idFuncionario)
     REFERENCES Funcionario(idFuncionario)
-      ON DELETE NO ACTION --Exclui somente o pai sem afetar o(s) registro(s) filhos ou relacionados em outras entidades.
+      ON DELETE NO ACTION
       ON UPDATE NO ACTION
 );
 
 CREATE TABLE IF NOT EXISTS Produto (
-  idProduto serial NOT NULL,
-  Categoria_idCategoria serial NOT NULL,
+  idProduto BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  Categoria_idCategoria BIGINT UNSIGNED NOT NULL,
   Nome VARCHAR(40) NOT NULL,
-  Cod_Barras INTEGER NOT NULL,
+  Cod_Barras INT NOT NULL,
   Preco DOUBLE NOT NULL,
   Marca VARCHAR(30) NOT NULL,
   PRIMARY KEY(idProduto),
@@ -82,12 +82,12 @@ CREATE TABLE IF NOT EXISTS Endereco_Supermercado (
 );
 
 CREATE TABLE IF NOT EXISTS Detalhe_Venda (
-  ID_Venda serial NOT NULL,
-  Nota_Fiscal_Codigo serial NOT NULL,
-  Funcionario_idFuncionario serial NOT NULL,
+  ID_Venda BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  Nota_Fiscal_Codigo BIGINT UNSIGNED NOT NULL,
+  Funcionario_idFuncionario BIGINT UNSIGNED NOT NULL,
   Preco_Unitario DOUBLE NOT NULL,
   Preco_Total DOUBLE NOT NULL,
-  Quantidade_Produto INTEGER NOT NULL,
+  Quantidade_Produto INT NOT NULL,
   data_detalhe DATE NOT NULL,
   PRIMARY KEY(ID_Venda),
   INDEX Detalhe_Venda_FKIndex1(Funcionario_idFuncionario),
@@ -103,8 +103,8 @@ CREATE TABLE IF NOT EXISTS Detalhe_Venda (
 );
 
 CREATE TABLE IF NOT EXISTS Detalhe_Venda_has_Produto (
-  Detalhe_Venda_ID_Venda serial NOT NULL,
-  Produto_idProduto serial NOT NULL,
+  Detalhe_Venda_ID_Venda BIGINT UNSIGNED NOT NULL,
+  Produto_idProduto BIGINT UNSIGNED NOT NULL,
   PRIMARY KEY(Detalhe_Venda_ID_Venda, Produto_idProduto),
   INDEX Detalhe_Venda_has_Produto_FKIndex1(Detalhe_Venda_ID_Venda),
   INDEX Detalhe_Venda_has_Produto_FKIndex2(Produto_idProduto),
