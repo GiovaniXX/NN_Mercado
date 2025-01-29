@@ -30,7 +30,7 @@
 * Utilize a biblioteca [iReport](https://community.jaspersoft.com/project/ireport-designer) para geração dos relatórios em pdf
 
 ### Quer compilar o projeto?
-* Clone o repositório com <code>git clone git@github.com:NadiaOliver/Caixa-de-Supermercados-em-Java.git</code>
+* Clone o repositório com <code>git clone git@github.com:GiovaniXX/NN_Mercado.git</code>
 * Abra a IDE 
 * Importe o projeto que estará na pasta <code>src</code>
 * Dentro do projeto NN_Mercado, vá até <code>Bibliotecas</code>, clique em <code>Adicionar JAR/Pasta</code> e escolha o arquivo <code> rs2xml.jar</code> que está na pasta <code> Plugin Java para listagem</code>
