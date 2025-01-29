@@ -33,7 +33,7 @@
 * Clone o repositório com <code>git clone git@github.com:GiovaniXX/NN_Mercado.git</code>
 * Abra a IDE 
 * Importe o projeto que estará na pasta <code>src</code>
-* Dentro do projeto NN_Mercado, vá até <code>lib</code>, clique em <code>Adicionar JAR/Pasta</code> e escolha o arquivo <code> rs2xml.jar</code></code>
+* No NetBeans, abra <code>Libraries</code>, botão direito do mouse em Libraries <code>Add JAR/Folder</code> e escolha o arquivo <code> rs2xml.jar</code> na pasta lib</code>
 * Vá até o arquivo <code>ConectaBanco.java</code>, que se encontra na pasta src->DAO e modifique a conexão com seus dados de usuário e senha do banco.
 * Execute a aplicação com o comando <code>Shift+F6</code>
 ### Manual do Usuário
