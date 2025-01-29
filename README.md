@@ -23,7 +23,7 @@
 
 ### Dependências do Projeto
 
-* Sugere-se o uso do [Netbeans](https://netbeans.org/) como IDE de compilação do projeto.
+* Sugere-se o uso do [Netbeans](https://netbeans.org/) como IDE de compilação do projeto com JDK 22.
 
 * Para esta aplicação, foi utilizado o SGBD [MySQL Workbench](https://www.mysql.com/downloads/) 
 
