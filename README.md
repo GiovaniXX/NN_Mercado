@@ -45,7 +45,7 @@
 [<img src="https://avatars0.githubusercontent.com/u/41811634?s=460&v=4" width="100px;"/><br/><sub><b>Nádia Oliveira</b></sub>](https://github.com/NadiaOliver)<br /> |[<img src="https://avatars3.githubusercontent.com/u/43919313?s=460&v=4" width="100px;"/><br /><sub><b>Luigi Miranda</b></sub>](https://github.com/LuigiKerb)<br /> |[<img src="[https://avatars.githubusercontent.com/u/42497524?v=4]" width="100px;"/><br /><sub><b>Giovanni Chaves</b></sub>](https://github.com/GiovaniXX)<br />
 --------- | ------ | ------
 
-Este projeto possui a licença <a href="https://github.com/NadiaOliver/Caixa-de-Supermercados-em-Java/blob/master/LICENSE" target="_blank">MIT</a> - Copyright © 2019.
+Este projeto possui a licença <a href="https://github.com/NadiaOliver/Caixa-de-Supermercados-em-Java/blob/master/LICENSE" target="_blank">MIT</a> - Copyright © 2019 - 2025.
 
 
 
