@@ -25,7 +25,7 @@
 
 * Sugere-se o uso do [Netbeans](https://netbeans.org/) como IDE de compilação do projeto.
 
-* Para esta aplicação, foi utilizado o SGBD [Postgresql](https://www.postgresql.org/download/) 
+* Para esta aplicação, foi utilizado o SGBD [MySQL Workbench](https://www.mysql.com/downloads/) 
 
 * Utilize a biblioteca [iReport](https://community.jaspersoft.com/project/ireport-designer) para geração dos relatórios em pdf
 
